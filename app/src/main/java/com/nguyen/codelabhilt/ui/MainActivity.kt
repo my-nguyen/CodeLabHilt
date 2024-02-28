@@ -6,12 +6,14 @@ import com.nguyen.codelabhilt.LogApplication
 import com.nguyen.codelabhilt.R
 import com.nguyen.codelabhilt.navigator.AppNavigator
 import com.nguyen.codelabhilt.navigator.Screens
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * Main activity of the application.
  *
  * Container for the Buttons & Logs fragments. This activity simply tracks clicks on buttons.
  */
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var navigator: AppNavigator
