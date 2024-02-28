@@ -2,11 +2,11 @@ package com.nguyen.codelabhilt.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.nguyen.codelabhilt.LogApplication
 import com.nguyen.codelabhilt.R
 import com.nguyen.codelabhilt.navigator.AppNavigator
 import com.nguyen.codelabhilt.navigator.Screens
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 /**
  * Main activity of the application.
@@ -16,13 +16,11 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var navigator: AppNavigator
+    @Inject lateinit var navigator: AppNavigator
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        navigator = (applicationContext as LogApplication).serviceLocator.provideNavigator(this)
 
         if (savedInstanceState == null) {
             navigator.navigateTo(Screens.BUTTONS)
