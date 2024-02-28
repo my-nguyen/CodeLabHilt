@@ -7,7 +7,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import com.nguyen.codelabhilt.R
-import com.nguyen.codelabhilt.data.LoggerLocalDataSource
+import com.nguyen.codelabhilt.data.LoggerDataSource
+import com.nguyen.codelabhilt.di.InMemoryLogger
 import com.nguyen.codelabhilt.navigator.AppNavigator
 import com.nguyen.codelabhilt.navigator.Screens
 import dagger.hilt.android.AndroidEntryPoint
@@ -18,8 +19,8 @@ import javax.inject.Inject
  */
 @AndroidEntryPoint
 class ButtonsFragment : Fragment() {
-
-    @Inject lateinit var logger: LoggerLocalDataSource
+    @InMemoryLogger
+    @Inject lateinit var logger: LoggerDataSource
     @Inject lateinit var navigator: AppNavigator
 
     override fun onCreateView(
